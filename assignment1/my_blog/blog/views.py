@@ -86,7 +86,7 @@ def create_post(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user  # Associate the post with the logged-in user
+            post.author = request.user
             post.save()
             return redirect('post_list')
     else:

@@ -1,0 +1,53 @@
+body {
+    background: linear-gradient(180deg, #798AB5FF 0.2%, #F3F3F3);
+    filter: brightness(80%), saturate(90%);
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+button {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+.content {
+    color: #131d62;
+}
+
+h3 {
+    font-weight: normal;
+    color: #131d62;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+a {
+    margin: 20px 0;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}

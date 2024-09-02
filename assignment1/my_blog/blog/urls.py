@@ -3,6 +3,7 @@ from . import views
 from accounts.views import register, login, logout
 
 urlpatterns = [
+    path('', views.post_list_view, name='post_list'),
     path('hello/', views.hello_blog, name='hello_blog'),
     path('blog/posts/', views.post_list, name='post_list'),
     path('blog/posts/<int:id>', views.post_detail, name='post_detail'),
