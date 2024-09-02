@@ -1,19 +1,55 @@
+<!-- blog/templates/blog/post_list.html -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts</title>
+    <title>Blog Post List</title>
+    <style>
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50%;
+    margin-bottom: 50px;
+}
+
+.step-links a {
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.step-links .current {
+    margin: 0 5px;
+}
+</style>
 </head>
 <body>
     <h1>Blog Posts</h1>
+
     <ul>
-        {% for post in posts %}
+        {% for post in page_obj.object_list %}
             <li>
                 <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-                by {{ post.author }} on {{ post.created_at }}
+                <p> by {{post.author}} at {{ post.created_at }}</p>
             </li>
         {% endfor %}
     </ul>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 </body>
 </html>
